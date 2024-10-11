@@ -1,0 +1,14 @@
+(10).Write a programme to Find and Replace all the occurrences of a word ‘gujarat’ in a file with ‘gujrat’.
+
+import sys
+
+myFile=open(sys.argv[1],'r')
+
+alllines=myFile.read()
+temp=alllines.replace('gujarat','gujrat')
+
+myFile=open(sys.argv[1],'w')
+myFile.write(temp)
+print(temp)
+
+myFile.close()
