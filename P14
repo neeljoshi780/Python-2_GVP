@@ -5,34 +5,20 @@ import re
 mobile_data="Mobile phone numbers can be formatted in various ways depending on the country or region, reflecting local conventions and international 1234567890 dialing standards. For example, in the United States, a mobile number 123 is typically written as (123) 456-7890, where the area code is enclosed in parentheses. In Canada, it uses a similar format: with the same North American numbering system. In the United Kingdom, mobile numbers are often presented as 07123 456789 or +44 7123 456789, where the country code (+44) replaces the leading zero. In Australia, a mobile number might appear as 0412 345 678 or +61 412 345 678, with the country code +61. In India, mobile numbers are usually written as +91 98765 43210 or 09876543210, where the country code (+91) is sometimes included, while the local format omits it. Each of these formats reflects how different regions organize their numbering systems, helping to standardize how we dial and connect internationally."
 
 # Expression
-exp_m1=r'\d{10}'
-exp_m2=r'\(\d{3}\)\D\d{3}-\d{4}'
-exp_m3=r'\d{5}\D\d{6}'
-exp_m4=r'\+\d{2}\D\d{4}\D\d{6}'
-exp_m5=r'\(\+\d{2}\)'
-exp_m6=r'\d{4}\D\d{3}\D\d{3}'
-exp_m7=r'\+\d{2}\D\d{3}\D\d{3}\D\d{3}'
-exp_m8=r'\+\d{2}'
-exp_m9=r'\+\d{2}\D\d{5}\D\d{5}'
+expMobile=r'\d{10}'
+m1=r'\d{10}'
+m2=r'\(\d{3}\)\s\d{3}-\d{4}'
+m3=r'\d{5}\s\d{6}'
+m4=r'\+\d{2}\s\d{4}\s\d{6}'
+m5=r'\(\+\d{2}\)'
+m6=r'\d{4}\s\d{3}\s\d{3}'
+m7=r'\+\d{2}\s\d{3}\s\d{3}\s\d{3}'
+m8=r'\+\d{2}'
+m9=r'\+\d{2}\s\d{5}\s\d{5}'
+expMobile = m1 + "|" + m2 + "|" + m3 + "|" + m4 + "|" + m5 + "|" + m6 + "|" + m7 + "|" + m8 + "|" + m9
 
 # Find mobile
-allnumber=re.findall(exp_m1,mobile_data)
-num1=re.findall(exp_m2,mobile_data)
-num2=re.findall(exp_m3,mobile_data)
-num3=re.findall(exp_m4,mobile_data)
-num4=re.findall(exp_m5,mobile_data)
-num5=re.findall(exp_m6,mobile_data)
-num6=re.findall(exp_m7,mobile_data)
-num7=re.findall(exp_m8,mobile_data)
-num8=re.findall(exp_m9,mobile_data)
+allNumber=re.findall(expMobile,mobile_data)
 
 # Print Mobile
-allnumber.append(num1)
-allnumber.append(num2)
-allnumber.append(num3)
-allnumber.append(num4)
-allnumber.append(num5)
-allnumber.append(num6)
-allnumber.append(num7)
-allnumber.append(num8)
-print(allnumber)
+print(allNumber)
