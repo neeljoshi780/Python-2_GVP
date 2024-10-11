@@ -1,0 +1,20 @@
+(6).Create a module for matrix operations.
+Steps
+1. Initialize Matrix.
+2. Print Matrix.
+3. Addition of Matrix.
+4. Multiplication of Matrix.
+
+from matrix_operation import *
+
+# initialize Matrix Function Calling
+initializeMatrix()
+
+# print Matrices Function
+printMatrix()
+
+# addition Two Matrix
+additionMatrix()
+
+# multiplication of Matrix
+multiplicationMatrix()
