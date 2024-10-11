@@ -1,0 +1,29 @@
+(5).Create a module to track academic performance.
+
+import academic_Details as ad
+
+while True:
+    print("1 Add Course")
+    print("2 Drop Course")
+    print("3 Display Courses Details")
+    print("4 Calculate CGPA")
+    print("5 Exit")
+    choice=int(input("Select The Choice:="))
+
+    if choice==1:
+        course=input("Add New Course:=")
+        credit=int(input("Add Course Total Credit:="))
+        earn=int(input("Add Course Earn Total Credit:="))
+        ad.addCourse(course,credit,earn)
+    elif choice==2:
+        cs=input("Remove Course:=")
+        ad.dropCourse(cs)
+    elif choice==3:
+        ad.printCourse()
+    elif choice==4:
+        ad.cgpa()
+    elif choice==5:
+        print("Program Exit Successfull.")
+        break
+    else:
+        print("Invalid Choice.!!")
