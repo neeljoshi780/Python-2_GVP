@@ -1,3 +1,5 @@
+(7).Write a program to implement a simple game –Tic-tac-toe using package.
+
 import random
 
 # Initialize the board
