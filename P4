@@ -1,3 +1,5 @@
+(4).Write a program for Binary search.
+
 def binarySearch(listOfArray,searchElement):
     low = 0
     high = len(listOfArray)-1
