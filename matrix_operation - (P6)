@@ -1,0 +1,52 @@
+matrix1=[[],[]]
+matrix2=[[],[]]
+
+# Initialize Matrix
+def initializeMatrix():
+    global matrix1
+    global matrix2
+    matrix1=[[1,2,3],[4,5,6]]
+    matrix2=[[1,2,3],[4,5,6]]
+
+# Print Matrix
+def printMatrix():
+    print("Matrix1")
+    for m1 in matrix1:
+        print(m1)
+    print("Matrix2")
+    for m2 in matrix2:
+        print(m2)
+
+# Addition of Matrix
+def additionMatrix():
+    print("Addition of Matrix")
+    global matrix1
+    global matrix2
+    i=0
+    j=0
+    sizem1=len(matrix1)
+    sizem2=len(matrix2)
+    while i<sizem1:
+        while j<=sizem2:
+            print(matrix1[i][j]+matrix2[i][j],end=" ")
+            j+=1
+        print("")
+        j=0
+        i+=1
+
+# Multiplication of Matrix
+def multiplicationMatrix():
+    print("\nMultiplication of Matrix")
+    global matrix1
+    global matrix2
+    i=0
+    j=0
+    sizem1=len(matrix1)
+    sizem2=len(matrix2)
+    while i<sizem1:
+        while j<=sizem2:
+            print(matrix1[i][j]*matrix2[i][j],end=" ")
+            j+=1
+        print("")
+        j=0
+        i+=1
