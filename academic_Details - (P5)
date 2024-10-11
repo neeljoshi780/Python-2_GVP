@@ -1,0 +1,48 @@
+courselist=[]
+creditlist=[]
+earnedlist=[]
+
+# Add Course Details
+def addCourse(cs,cr,ea):
+    courselist.append(cs)
+    creditlist.append(cr)
+    earnedlist.append(ea)
+
+# Drop Course Details
+def dropCourse(cs):
+    if cs in courselist:
+        index=courselist.index(cs)
+        courselist.pop(index)
+        creditlist.pop(index)
+        earnedlist.pop(index)
+    else:
+        print("Course Not Found.!!")
+
+# Print Course Details
+def printCourse():
+    if len(courselist)>0:
+        print("<--- Courses Informations --->")
+        print("{0}   {1}   {2}".format("Course","Credit","Earned"))
+        i=0
+        for course in courselist:
+            credit=creditlist[i]
+            earned=earnedlist[i]
+            print(f" {course}       {credit}       {earned}")
+            i+=1
+    else:
+        print("Not Available Course.!!")
+
+# CGPA Find
+def cgpa():
+    if len(courselist)>0:
+        total,totalcredit = 0,0
+        i=0
+        for credit in creditlist:
+            earn = earnedlist[i]
+            total += (credit*earn)
+            totalcredit += credit
+            i+=1
+
+        print(total / totalcredit)
+    else:
+        print("Not Available Course.!!")
