@@ -1,0 +1,17 @@
+(8).Write a programme to Print file contents, copy a file and read-write a file.
+
+# Print a File Content
+myfile=open("text.txt","r")
+
+data=myfile.read()
+print(data)
+myfile.close()
+
+# Copy a File Content & read,write
+myfile=open("text2.txt","w+")
+
+myfile.write(data)
+myfile.seek(0)
+newData=myfile.read()
+print("New Data::")
+print(newData)
