@@ -1,0 +1,68 @@
+def process_conference_registration():
+    non_students_count = 0
+    iit_participants = []
+    participants_by_affiliation = {}
+    seen_records = []
+    duplicate_records = []
+
+    file = open("P13.txt", 'r')
+
+    header = file.readline().strip().split(',')
+
+    for line in file:
+        fields = line.strip().split(',')
+
+        participant = {
+            'Name': fields[0],
+            'Category': fields[1],
+            'Affiliation': fields[2],
+            'Email': fields[3]
+        }
+
+        if participant['Category'].lower() != 'student':
+            non_students_count += 1
+
+        if 'IIT' in participant['Affiliation']:
+            iit_participants.append(participant)
+
+        participant_tuple = (participant['Name'], participant['Category'], participant['Affiliation'], participant['Email'])
+
+        if participant_tuple in seen_records:
+            duplicate_records.append(participant)
+        else:
+            seen_records.append(participant_tuple)
+
+        if participant['Affiliation'] not in participants_by_affiliation:
+            participants_by_affiliation[participant['Affiliation']] = []
+        participants_by_affiliation[participant['Affiliation']].append(participant)
+
+    file.close()
+
+    # Display results
+    print(f"Number of non-students registered: {non_students_count}")
+
+    print("\nParticipants from IITs:")
+    for participant in iit_participants:
+        print(f"{participant['Name']} ({participant['Affiliation']})")
+
+    print("\nDuplicate records:")
+    for duplicate in duplicate_records:
+        print(f"{duplicate['Name']} ({duplicate['Affiliation']})")
+
+    print("\nParticipants grouped by affiliation:")
+    for affiliation, participants in participants_by_affiliation.items():
+        print(f"\n{affiliation}:")
+        for participant in participants:
+            print(f"  {participant['Name']}")
+
+process_conference_registration()
+
+
+//P13.txt
+Name,Category,Affiliation,Email
+Neel Joshi,Student,IIT Bombay,neeljoshi780@gmail.com
+Smith,Non-student,ABC Corp,smith@gmail.com
+Gautam,Student,IIT Delhi,gautam@gmail.com
+Ansh Pandit,Non-student,Banking,ansh@gmail.com
+Rajesh Raval,Student,Parul Univercity,rajesh@gmail.com
+Rajesh Raval,Student,Parul Univercity,rajesh@gmail.com
